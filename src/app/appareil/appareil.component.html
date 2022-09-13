@@ -1,0 +1,17 @@
+<!--<li class="list-group-item">-->
+    <li [ngClass]="{'list-group-item':true, 
+                    'list-group-item-success':appareilStatus ==='allumé',
+                    'list-group-item-danger':appareilStatus ==='éteint'}">
+    <div 
+    style="width:20px; height: 20px; background-color: red;"
+    *ngIf="appareilStatus=='éteint'"></div>
+    <!--
+        interepolation {{ }}data provient du fichier ts vers html
+    -->
+    <h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Status : {{ getStatus() }}</h4>
+
+     <!--
+        Two-way binding [(ngModel)] liaison de deux sens du fichier ts vers html et vise versa
+    -->
+    <input type="text" class="form-control" [(ngModel)]="appareilName" >
+</li>
