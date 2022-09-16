@@ -1,0 +1,18 @@
+<div class="col-xs-12">
+    <h2>Mes appareils</h2>
+    <h3>Mise à jour : {{ update | date:'short' | uppercase  }}</h3>
+    <ul class="list-group">
+      <app-appareil *ngFor="let ap of appareils; let i=index" 
+      [indexOfAppareil] = "i"
+       [appareilName]="ap.name" [appareilStatus] = "ap.status" [id] ="ap.id"></app-appareil>
+    </ul><br>
+      <!--
+      propriete binding [disabled] data provient du code ts vers html
+      event binding (click)="" data provient du html vers code ts
+  -->
+    <button class="btn btn-success" 
+    [disabled]="!isAuth" (click)="onAllumer()">All allumer</button>
+
+    <button class="btn btn-danger" 
+    [disabled]="!isAuth" (click)="onEteint()">All eteint</button>
+  </div>
