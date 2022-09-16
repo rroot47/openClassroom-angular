@@ -1,18 +1,13 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+      <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h2>Mes appareils</h2>
-      <h3>Mise à jour : {{ update | date:'short' | uppercase  }}</h3>
-      <ul class="list-group">
-        <app-appareil *ngFor="let ap of appareils" 
-         [appareilName]="ap.name" [appareilStatus] = "ap.status"></app-appareil>
-      </ul><br>
-        <!--
-        propriete binding [disabled] data provient du code ts vers html
-        event binding (click)="" data provient du html vers code ts
-    -->
-      <button class="btn btn-success" 
-      [disabled]="!isAuth" (click)="onAllumer()">All allumer</button>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>

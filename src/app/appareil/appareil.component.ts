@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { AppareilService } from '../services/appareil.service';
 
 @Component({
   selector: 'app-appareil',
@@ -9,9 +10,11 @@ export class AppareilComponent implements OnInit {
 
   @Input() appareilName : string =''; //propriete personnaliser
   @Input() appareilStatus : string = '';
+  @Input() indexOfAppareil : number = 0;
+  @Input() id:number = 0;
  // appareilName = 'PC';
   //appareilStatus = 'Eteint';
-  constructor() { }
+  constructor(private appareilService:AppareilService) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +29,12 @@ export class AppareilComponent implements OnInit {
       return "red";
     }
     return;
+  }
+  allumeUn(){
+    this.appareilService.allumeUn(this.indexOfAppareil);
+  }
+
+  eteintUn(){
+    this.appareilService.eteintUn(this.indexOfAppareil);
   }
 }
